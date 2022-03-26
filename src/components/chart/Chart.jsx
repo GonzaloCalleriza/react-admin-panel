@@ -2,20 +2,21 @@ import React from 'react';
 import './chart.scss';
 import { XAxis, CartesianGrid, Tooltip, Area, AreaChart } from 'recharts';
 
-const Chart = () => {
+const data = [
+    { name: 'January', Total: 1200},
+    { name: 'February', Total: 2100},
+    { name: 'March', Total: 1600},
+    { name: 'April', Total: 1200},
+    { name: 'May', Total: 900},
+    { name: 'June', Total: 1700}
+  ];
 
-    const data = [
-        { name: 'January', Total: 1200},
-        { name: 'February', Total: 2100},
-        { name: 'March', Total: 1600},
-        { name: 'April', Total: 1200},
-        { name: 'May', Total: 900},
-        { name: 'June', Total: 1700}
-      ];
+const Chart = ({ title }) => {
 
     return (
         <div className="chart">
-            <div className='title'>Last 6 Months (Revenue)</div>
+            {title ? <div className='title'>{title}</div> :
+                    <div className='title'>Last 6 Months (Revenue)</div>}
             <AreaChart width={730} height={250} data={data}
                 margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
                 <defs>
